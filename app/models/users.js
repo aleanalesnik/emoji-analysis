@@ -16,12 +16,26 @@ module.exports = ( sequelize, DataTypes ) => {
         password: DataTypes.STRING,
     });
 
+    User.createUser = ( registerDetails ) => {
+        return bcrypt.hash(registerDetails.password, 10).then( hash => {
+            return User.create({
+                firstname: registerDetails.firstname, 
+                lastname: registerDetails.lastname,
+                dob: registerDetails.dob,
+                country: registerDetails.country,
+                twitter_account: registerDetails.twitter_account,
+                email: registerDetails.email,
+                password: hash
+            });
+        });
+    }; 
+
     User.userExists = ( email ) => {
         return User.findOne({
             where: { 
             	email: email 
             }
-        });
+        }); 
     };
 
     User.checkPassword = ( password, hash ) => {
@@ -29,5 +43,6 @@ module.exports = ( sequelize, DataTypes ) => {
             return res;
         })
     }
+    
     return User;
 }

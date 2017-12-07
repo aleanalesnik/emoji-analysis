@@ -1,0 +1,37 @@
+extends layout
+
+block content
+	div.col-12.col-sm-12
+		div.row
+			div.container
+				br
+				br
+				div.col-12.col-md-6.offset-md-3
+					div.form-wrapper
+						h4 Sign up!
+						form.form(action="/users/register" method="post" role="form")
+							div.row
+								div.col-xs-6.col-md-6
+									input.form-control(name="firstname" placeholder="First Name" type="text" required autofocus="")
+								div.col-xs-6.col-md-6
+									input.form-control(name="lastname" placeholder="Last Name", type="text" required)
+							div.row
+								label(for="") Birth Date
+							div.row
+								div.col-xs-4.col-md-4
+									select.form-control
+										option(value="Month") Month
+								div.col-xs-4.col-md-4
+									select.form-control
+										option(value="Day") Day
+								div.col-xs-4.col-md-4
+									select.form-control
+										option(value="Year") Year
+							input.form-control(name="country" placeholder="Your country" type="text")
+							input.form-control(name="twitter_account" placeholder="Your twitter account name" type="text")
+							input.form-control(name="email" placeholder="Your emailaddress" type="email")
+							label(for="password") Choose a password
+							input.form-control(name="password" type="password")
+							br
+							button.btn.btn-lg.btn-primary.btn-block(type="submit") Sign up
+

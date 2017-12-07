@@ -14,5 +14,5 @@ module.exports = ( sequelize, DataTypes ) => {
         tweets_surveyed: DataTypes.INTEGER
     });
 
-    return Search;
+    return Search; 
 }

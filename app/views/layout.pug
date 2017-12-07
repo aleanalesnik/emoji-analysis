@@ -3,12 +3,38 @@ html
     head
         meta(charset="utf-8")
         meta(name="viewport", content="width=device-width, initial-scale=1")
-        link(rel="stylesheet" href="css/style.css")
-        link(rel="icon" type="image/png" href="#" sizes="32x32")
+        title Emoji analysis
+        link(rel="stylesheet" href="/css/bootstrap.css") 
+        link(rel="stylesheet" href="/css/style.css")
+        link(rel="icon" type="image/png" href="/images/icon.png" sizes="32x32")
     
     body
-        block content
+        header 
+            div.navbar-wrapper
+                nav.navbar.navbar-expand-lg.navbar-light.bg-light
+                    div.container
+                        a.navbar-brand(href="/")
+                            strong Emoji Analysis.com
+                        button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarNavAltMarkup", aria-controls="navbarNavAltMarkup", aria-expanded="false", aria-label="Toggle navigation")
+                            span.navbar-toggler-icon
+                        div#navbarNavAltMarkup.collapse.navbar-collapse
+                            div.navbar-nav.ml-auto
+                                a.nav-item.nav-link.nav-coloring(href="/faq") FAQ
+                                a.nav-item.nav-link.nav-coloring(href="/about") About
+                                a.nav-item.nav-link.nav-coloring(href="/about") Contact
+                                if session
+                                    a.nav-item.nav-link.nav-coloring(href="#") #{session.user.firstname}
+                                    a.btn.btn-success(role="button" href="/users/login") Sign out
+                                else
+                                    a.btn.btn-success(role="button" data-toggle="modal" data-target="#login-overlay" aria-hidden="true") Sign in
+        main
+            
+            block content
 
-    //- script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js')
+            include login-modal.pug
+
+        footer
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
-    script(src="js/main.js")
+    script(src="./js/main.js")

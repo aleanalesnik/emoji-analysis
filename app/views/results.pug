@@ -1,0 +1,63 @@
+extends layout
+
+block content
+	div.container
+		div.col-12.col-sm-12
+			div.row
+				div.col-sm-12.col-md-6
+					div.results
+						br
+						br
+						br
+						span#results(data-positive =`${result.positive}` data-negative=`${result.negative}` data-neutral= `${result.neutral}`)
+						h3 You searched for 
+							i #{result.query}. 
+							| These are the results.
+						p #{result.total-result.error} tweets were analysed. #{result.positive}% of tweets were positive, #{result.negative}% was negative and #{result.neutral}% was neutral. 
+						br
+						p Want to know more about how we calculate this? Visit the 
+							a(href="/faq") FAQ page.
+						div.pie-wrapper
+							canvas#sentimentChart(width="400" height="400")
+				div.col-sm-12.col-md-6
+					br
+					br
+					br
+					h3 Look through the tweets
+					br
+					div.tweet-wrapper
+						each tweet in result.tweets
+							div.tweet
+								p= tweet
+						p We purposely left out the usernames for privacy reasons.
+						
+
+
+	script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+	script(src="../js/Chart.js")
+	script.
+		$( document ).ready(function() {
+			const positive = $('#results').data('positive');
+			const negative = $('#results').data('negative');
+			const neutral = $('#results').data('neutral');
+
+			const ctx = document.getElementById("sentimentChart").getContext("2d");
+
+			let myChart = new Chart(ctx, {
+			    type: 'doughnut',
+			    data: {
+			        labels: ["Positive", "Negative", "Neutral"],
+			        datasets: [{
+			            label: '% of sentiment emojis',
+			            data: [positive, negative, neutral],
+			            backgroundColor:[
+			            "rgb(57, 211, 35)",
+			            "rgb(210, 34, 81)",
+			            "rgb(255, 205, 86)"
+			            ],
+			            borderWidth: 4
+			        }]
+			    },
+			    options: {}
+			});
+		});

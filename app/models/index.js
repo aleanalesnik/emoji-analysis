@@ -7,7 +7,7 @@ const sequelize = new Sequelize('emoji_analysis', process.env.POSTGRES_USER, nul
     dialect: 'postgres',
     operatorsAliases: false,
     logging: false
-});
+}); 
 
 
 //-----MODEL DEFINITIONS-----//
@@ -26,6 +26,7 @@ exports.sequelize = sequelize;
 exports.Sequelize = Sequelize;
 exports.Search = Search;
 exports.User = User;
+
 
 //-----NOTES !!!!!--------------------
 // if we write general functions, we need to export them here
