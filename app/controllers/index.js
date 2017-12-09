@@ -13,7 +13,7 @@ router.use('/searches', require('./searches'));
 
 // GET PAGE "HOME"
 router.get('/', function(req, res){
-	res.render('index');  
+	res.render('index', {session: req.session.user});  
 });
 
 // GET PAGE "ABOUT"

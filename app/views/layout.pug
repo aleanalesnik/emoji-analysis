@@ -23,8 +23,8 @@ html
                                 a.nav-item.nav-link.nav-coloring(href="/about") About
                                 a.nav-item.nav-link.nav-coloring(href="/contact") Contact
                                 if session
-                                    a.nav-item.nav-link.nav-coloring(href="#") #{session.user.firstname}
-                                    a.btn.btn-success(role="button" href="/users/login") Sign out
+                                    i.nav-item.nav-link.nav-coloring #{session.firstname} #{session.lastname}
+                                    a.btn.btn-success(role="button" href="/users/logout") Sign out
                                 else
                                     a.btn.btn-success(role="button" data-toggle="modal" data-target="#login-overlay" aria-hidden="true") Sign in
         main
@@ -34,7 +34,8 @@ html
             include login-modal.pug
 
         footer
-
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js')
+    
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js')
+    script(src='./js/bootstrap.js')
     script(src="./js/main.js")

@@ -8,7 +8,9 @@ block content
 				br
 				div.col-12.col-md-6.offset-md-3
 					div.form-wrapper
-						h4 Sign up!
+						h4 Sign up for full access!
+						hr
+						p= message
 						form.form(action="/users/register" method="post" role="form")
 							div.row
 								div.col-xs-6.col-md-6
@@ -16,22 +18,144 @@ block content
 								div.col-xs-6.col-md-6
 									input.form-control(name="lastname" placeholder="Last Name", type="text" required)
 							div.row
-								label(for="") Birth Date
+								div.col-xs-12.col-md-12
+									label(for="") Date of Birth
 							div.row
 								div.col-xs-4.col-md-4
-									select.form-control
-										option(value="Month") Month
+									select.form-control(name='dob_month')
+										option(value='' hidden) Month
+										option(value="01") January
+										option(value="02") Februari
+										option(value="03") March
+										option(value="04") April
+										option(value="05") May
+										option(value="06") June
+										option(value="07") July
+										option(value="08") August
+										option(value="09") September
+										option(value="10") October
+										option(value="11") November
+										option(value="12") December
 								div.col-xs-4.col-md-4
-									select.form-control
-										option(value="Day") Day
+									select.form-control(name='dob_day')
+										option(value='' hidden) Day
+										option(value='01') 1
+										option(value='02') 2
+										option(value='03') 3
+										option(value='04') 4
+										option(value='05') 5
+										option(value='06') 6
+										option(value='07') 7
+										option(value='08') 8
+										option(value='09') 9
+										option(value='10') 10
+										option(value='11') 11
+										option(value='12') 12
+										option(value='13') 13
+										option(value='14') 14
+										option(value='15') 15
+										option(value='16') 16
+										option(value='17') 17
+										option(value='18') 18
+										option(value='19') 19
+										option(value='20') 20
+										option(value='21') 21
+										option(value='22') 22
+										option(value='23') 23
+										option(value='24') 24
+										option(value='25') 25
+										option(value='26') 26
+										option(value='27') 27
+										option(value='28') 28
+										option(value='29') 29
+										option(value='30') 30
+										option(value='31') 31
 								div.col-xs-4.col-md-4
-									select.form-control
-										option(value="Year") Year
-							input.form-control(name="country" placeholder="Your country" type="text")
-							input.form-control(name="twitter_account" placeholder="Your twitter account name" type="text")
-							input.form-control(name="email" placeholder="Your emailaddress" type="email")
-							label(for="password") Choose a password
-							input.form-control(name="password" type="password")
+									select.form-control(name='dob_year')
+										option(hidden) Year
+										option 2006
+										option 2005
+										option 2004
+										option 2003
+										option 2002
+										option 2001
+										option 2000
+										option 1999
+										option 1998
+										option 1997
+										option 1996
+										option 1995
+										option 1994
+										option 1993
+										option 1992
+										option 1991
+										option 1990
+										option 1989
+										option 1988
+										option 1987
+										option 1986
+										option 1985
+										option 1984
+										option 1983
+										option 1982
+										option 1981
+										option 1980
+										option 1979
+										option 1978
+										option 1977
+										option 1976
+										option 1975
+										option 1974
+										option 1973
+										option 1972
+										option 1971
+										option 1970
+										option 1969
+										option 1968
+										option 1967
+										option 1966
+										option 1965
+										option 1964
+										option 1963
+										option 1962
+										option 1961
+										option 1960
+										option 1959
+										option 1958
+										option 1957
+										option 1956
+										option 1955
+										option 1954
+										option 1953
+										option 1952
+										option 1951
+										option 1950
+										option 1949
+										option 1948
+										option 1947
+										option 1946
+										option 1945
+										option 1944
+										option 1943
+										option 1942
+										option 1941
+										option 1940
+							input.form-control(name="country" placeholder="Country you're from" type="text" required)
+							input.form-control(name="twitter_account" placeholder="Your twitter-account name" type="text" required)
+							input.form-control(name="email" placeholder="Your emailaddress" type="email" aria-describedby="emailInfo" required)
+							small#emailInfo.form-text.text-muted This will be your emoji-analysis account.
+							div.row
+								div.col-xs-6.col-md-6
+									br
+									label(for="password") Choose a password
+									input.form-control(name="password" type="password" aria-describedby="passwordInfo" required)
+								div.col-xs-6.col-md-6
+									br
+									label(for="passwordCheck") Re-enter password
+									input.form-control(name="passwordCheck" type="password" required)
+							div.row
+								div.col-xs-12.col-md-12
+									small#passwordInfo.form-text.text-muted Your password must be 8-20 characters long.
 							br
 							button.btn.btn-lg.btn-primary.btn-block(type="submit") Sign up
 
