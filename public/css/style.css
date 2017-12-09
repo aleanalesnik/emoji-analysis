@@ -1,18 +1,80 @@
+/* ---------------------------------------------------------------------------
+				BASIC FORMATING
+------------------------------------------------------------------------------*/
+
+/*
+Actual color codes from header image:
+#3B8CCD - not used yet, light blue
+#003366; - used for borders, dark blue
+#3975BE; - used for heading 2, reg. blue
+*/
+
+
+
 * {
 	margin: 0px;
 	padding: 0px;
 }
 
-h1 {
-	font-size: 3vw;
-	color: white;
+html {
+    font-size: 16px;
+    color: black;
 }
+
+/*special font for front page*/
+h1 {
+	font-size: 3rem;
+	color: white;
+	text-shadow: 2px 2px 2px #003366;
+}
+
+h2 {
+    font-size: 3rem;
+    color: #3975BE;
+}
+
+h3 {
+    font-size: 2.3rem;
+    color: #003366;
+}
+
+
+h4 {
+    font-size: 2rem;
+    margin:0;
+    padding:0;
+    color: black;
+}
+
+h5 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+}
+
+/*h6 {
+    margin:0;
+    padding:0;
+    letter-spacing: 2px;
+    text-decoration: underline;
+}*/
 
 p {
 	font-size: 1rem;
+    margin:0;
+    padding:0;
+    color: black;
 }
+/* end of basic formatting */
 
 
+
+
+
+/* ---------------------------------------------------------------------------
+				HOMEPAGE
+------------------------------------------------------------------------------*/
 .header-image {
 	z-index: -1;
 	width: 100%;
@@ -34,21 +96,35 @@ p {
 	top: 17vw;
 }
 
-.tweet-wrapper {
-	width: 100%;
-	height: 400px;
-	background-color: #ededed;
-	overflow: auto;
-}
 
-.tweet {
-	border: 1px solid grey;
-	margin: 10px;
+
+.reason {
+	border: 5px solid #003366;
 	padding: 5px;
+	text-align: middle;
 }
 
-/* --------------------------------------- PIE CHART ON RESULTS PAGE ------------------------------------ */
+#reason-link {
+	color: #003366;
+	font-size: 1rem;
+	text-transform: uppercase;
+	text-decoration: underline;
+	margin: 0;
+	padding: 0;
+}
 
+
+/*
+#003366 dark
+#3975BE light
+*/
+
+
+
+
+/* ---------------------------------------------------------------------------
+				PIE CHART ON RESULTS PAGE
+------------------------------------------------------------------------------*/
 .pie-wrapper {
 	margin: 0 auto;
 	width: 100%;
@@ -65,6 +141,182 @@ p {
 	border: 1px solid grey;
 }
 
-/* --------------------------------------- REGISTER FORM ------------------------------------ */
+/* end of PIE CHART */
 
+
+
+/* ---------------------------------------------------------------------------
+				RESULTS PAGE
+------------------------------------------------------------------------------*/
+
+
+
+/*  LEFT SIDE - RESULTS & PIE CHART */
+
+.results {
+	text-align: center;
+}
+
+
+#positive {
+	color: green;
+	font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#negative {
+	color: red;
+	font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#neutral {
+	color: orange;
+	font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+
+/*  RIGHT SIDE - TWEETS  */
+
+.tweet-wrapper {
+	width: 100%;
+	height: 600px;
+	overflow: auto;
+}
+
+.tweet {
+	border: 4px solid #3975BE;
+	margin: 30px;
+	padding: 5px;
+}
+
+#disclaimer {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.8rem;
+	color: grey;
+	margin: 0;
+	padding: 0;
+}
+
+
+
+/* end of RESULTS page */
+
+
+
+
+
+
+/* ---------------------------------------------------------------------------
+				ABOUT PAGE
+------------------------------------------------------------------------------*/
+
+.about-parent {
+	width: 100%;
+	height: auto;
+	display: inline-block;
+	display: flex;
+}
+
+.about {
+	padding-top: 2%;
+	text-align: center;
+	padding-left: 5%;
+	line-height: 60%;
+	overflow: scroll;
+}
+
+.nova {
+	border: 4px solid #003366;
+	display: inline-block;
+	position: relative;
+	width: 45%;
+	height: auto;
+	margin: 2%;
+	overflow: scroll;
+}
+
+
+.alea {
+	border: 4px solid #003366;
+	display: inline-block;
+	position: relative;
+	width: 45%;
+	height: auto;
+	margin: 2%;
+	overflow: scroll;
+}
+
+/* end of ABOUT page */
+
+
+
+
+
+/* ---------------------------------------------------------------------------
+					CONTACT PAGE
+------------------------------------------------------------------------------*/
+.contact-parent {
+	width: 100%;
+	height: auto;
+}
+
+.googlemaps {
+	display: inline-block;
+	position: relative;
+	width: 60%;
+	height: auto;
+	margin: 2%;
+}
+
+.contact-info {
+	display: inline-block;
+	position: absolute;
+	width: 30%;
+	height: auto;
+	margin: 2%;
+	text-align: left;
+}
+
+/* end of CONTACT page */
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------------------------------
+				FAQ PAGE
+------------------------------------------------------------------------------*/
+
+.faq {
+	border: 4px solid #003366;
+	padding: 10px;
+	overflow: scroll;
+	width: 48%;
+	height: 250px;
+	margin: 10px;
+	display: inline-flex;
+}
+
+.faqheading {
+	text-align: left;
+	padding-right: 15px;
+	font-size: 1.4rem;
+	font-weight: bold;
+}
+
+.emoji {
+	font-size: 2rem;
+}
+
+/* end of FAQ page */
 
