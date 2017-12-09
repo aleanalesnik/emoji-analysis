@@ -25,7 +25,7 @@ block content
 									select.form-control(name='dob_month')
 										option(value='' hidden) Month
 										option(value="01") January
-										option(value="02") Februari
+										option(value="02") February
 										option(value="03") March
 										option(value="04") April
 										option(value="05") May
@@ -140,10 +140,19 @@ block content
 										option 1942
 										option 1941
 										option 1940
-							input.form-control(name="country" placeholder="Country you're from" type="text" required)
-							input.form-control(name="twitter_account" placeholder="Your twitter-account name" type="text" required)
-							input.form-control(name="email" placeholder="Your emailaddress" type="email" aria-describedby="emailInfo" required)
-							small#emailInfo.form-text.text-muted This will be your emoji-analysis account.
+							div.row
+								div.col-xs-12.col-md-12
+									label(for="") Country You Currently Live In
+							input.form-control(name="country" placeholder="e.g. United States" type="text" required)
+							div.row
+								div.col-xs-12.col-md-12
+									label(for="") Twitter Account Name
+							input.form-control(name="twitter_account" placeholder="@twitter_handle" type="text" required)
+							div.row
+								div.col-xs-12.col-md-12
+									label(for="") Email Address
+							input.form-control(name="email" placeholder="yourname@gmail.com" type="email" aria-describedby="emailInfo" required)
+							small#emailInfo.form-text.text-muted *This will be how you sign in to your Emoji Analysis account!
 							div.row
 								div.col-xs-6.col-md-6
 									br

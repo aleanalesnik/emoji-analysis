@@ -5,32 +5,36 @@ block content
 		div.col-12.col-sm-12
 			div.row
 				div.col-sm-12.col-md-6
-					br
-					br
 					div.results
+						br
 						span#results(data-positive =`${result.positive}` data-negative=`${result.negative}` data-neutral= `${result.neutral}`)
 						h2.text-center Results for 
-							i #{result.query}
-						p#disclaimer Out of #{result.total-result.error} tweets analysed:
-						p#positive Percent Positive: #{result.positive}%
-						p#negative Percent Negative: #{result.negative}%
-						p#neutral Percent Neutral: #{result.neutral}%
+							h6 #{result.query}
 						br
 						div.pie-wrapper
 							canvas#sentimentChart(width="400" height="400")
+						br
+						.percent-results
+							p Out of #{result.total-result.error} tweets analysed:
+							p#positive #{result.positive}% Positive Tweets
+							p#negative #{result.negative}% Negative Tweets
+							p#neutral #{result.neutral}% Neutral Tweets
 				div.col-sm-12.col-md-6
 					br
 					br
-					h2.text-center Tweets Analyzed
-					p#disclaimer Disclaimer: We purposely left out usernames for privacy reasons.
+					h5.text-center Tweets Analyzed
 					div.tweet-wrapper
 						each tweet in result.tweets
 							div.tweet
 								p= tweet
+					br
+					p#disclaimer Disclaimer: We purposely left out usernames for privacy reasons.
+					br
+					br
 					p.text-center Want to know more about our calculations?
 					p.text-center Check out our research at our 
 						a(href="/faq") FAQ page .
-					br
+
 	script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
 	script(src="../js/Chart.js")
 	script.

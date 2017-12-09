@@ -2,45 +2,64 @@ extends layout
 
 block content
 	div.container
-		h2.text-center Frequently Asked Questions
-		.faq
-			h5.faqheading What does this web application do?
-				.emoji 📊❓
-			p.text-middle First, we survey public opinion on Twitter using hashtags entered into our search bar. Then, we quantify emotional sentiment using emojis.
-		.faq
-			h5.faqheading What is "emotional sentiment"?
-				.emoji 😅❓
-			p.text-middle Sentiment Analysis (also known as opinion mining) focuses on discovering patterns in text that can be analysed to classify emotions in that text. Emoticons and Emojis have become one of the leading analytical tools for lanuage analysis on the internet. Emojis are free of grammar errors and language barriers, which greatly helps the accuracy of reports.
-		.faq
-			h5.faqheading How does it work?
-				.emoji 🤔❓
-			//- button#show_hide Show/Hide answer
-			//- #toggle_tst
-			p.text-middle To measure emotion using emojis, we categorized basic human emotions into three classifications: Positive, Negative and Neutral. Then, made a data set of emojis that fit into each category based on academic findings. Once a user enters an inquiry in the search, our algorithm gets to work! The final result will be a data visualization showing the percentage of positive, negative and nuetral sentiment of the user’s inquiry. 
-		.faq
-			h5.faqheading Why use Emojis to calculate emotion?
-				.emoji 🙄❓
-			p.text-middle Commonly used in many tweets, Emojis are a scientifically-proven and reliable reflection of human emotion. They directly express one’s emotions regardless of language, and for that reason they have become a powerful indicator for sentiment analysis. Emojis are also not restricted by language, meaning our research can be broadened to any person using Twitter, which we think is pretty awesome.
-		.faq
-			h5.faqheading Does this only work for Twitter?
-				.emoji 🐦❓
-			p.text-middle Yes. As of right now, we are only applying our algorithm for Twitter hashtags. The company is a centerpiece for publishing opinions and expressing emotions worldwide. With an average of 330 million monthly active users, the microblogging service is a rich source of data for emotion analysis. Most importantly, the brevity of the tweets teaches people to express themselves in as little words as possible.
-		.faq
-			h5.faqheading Where is the full research?
-				.emoji 📚❓
-			p.text-middle Coming soon. We have tirelessly become minor experts on the subject of Emotional Sentiment Analysis and Emojis in general, but because of deadline restrictions we will be publishing the full extent of our research in the near future.
-		.faq
-			h5.faqheading What is your algorithm?
-				.emoji 🔮❓
-			p.text-middle It's a cumulation of the programming languages and concepts we've learned throughout the JavaScript Intensive programming course taught by the New York Code and Design Academy. Once an inquiry is made, our backend code runs through Twitter’s Search API to extract relevant tweets and then divide them based on their emotional sentiment from the emojis.
-		.faq
-			h5.faqheading Thanks for stopping by!
-				.emoji 👏✅
-			p.text-middle If you have any more questions or comments, please visit our contact page to find our information. We'd love to hear from you!
-	
-	//- script.
-	//- 	$(document).ready(function(){
-	//- 		$("#show_hide").click(function(){
-	//- 		$("#toggle_tst").toggle();
-	//- 	});
-	//- 	});
+		h2.text-center FAQs
+		button.accordion What does this web application do?
+			.emoji 📊
+		.panel
+			p
+				| First, we survey public opinion on Twitter using hashtags entered into our search bar. Then, we quantify <strong>emotional sentiment</strong> using emojis.
+			br
+			p
+				| To measure emotion using emojis, we categorized basic human emotions into three classifications: <em>Positive</em>, <em>Negative</em> and <em>Neutral</em>. Then, made a data set of emojis that fit into each category based on academic findings. Once a user enters an inquiry in the search, our algorithm gets to work! The final result will be a data visualization showing the percentage of positive, negative and nuetral sentiment of the user’s inquiry.
+		button.accordion What is "emotional sentiment"?
+			.emoji 🤔
+		.panel
+			p
+				| Opinions and related concepts such as sentiments and emotions are the subjects of <strong>sentiment analysis</strong> and opinion mining. Relating to the artificial intelligence of feelings in text, sentiment analysis looks for patterns in text to classify different ranges of thought. Recently, the study has flourished tremendously due to the failure of traditional methods.
+			br
+			p
+				| Natural Language Processing (NLP) was considered a standard approach in processing emotion through language, but with the rise of the Internet, its mechanisms did not fit into our present-day communication. NLP broke down when applied to social media due to the presence of many spelling, grammatical, and punctuation errors.
+			br
+			p
+				| Because of the advancements in emotional studies, an emerging and exciting field of research has been gaining traction, which combines the techniques of sentiment analysis with the practices of modern conversation online: <strong>Emoji Analysis</strong>.
+		button.accordion Why use Emojis to calculate emotion?
+			.emoji ❓
+		.panel
+			p
+				| Emoticons and Emojis have become one of the leading analytical tools for <strong>language analysis</strong> on the internet. Emojis are free of grammar errors and language barriers, which greatly helps the accuracy of reports.
+			br
+			p
+				| Commonly used in many tweets, Emojis are a scientifically-proven and reliable reflection of human emotion. They directly express one’s emotions regardless of language, and for that reason they have become a powerful indicator for sentiment analysis, which we think is pretty awesome.
+		button.accordion Does Emoji Analysis only work for Twitter?
+			.emoji 🐦
+		.panel
+			p
+				| <strong>Yes</strong>. As of right now, we are only applying our algorithm for Twitter hashtags. The company is a centerpiece for publishing opinions and expressing emotions worldwide. With an average of 330 million monthly active users, the microblogging service is a rich source of data for emotion analysis. Most importantly, the brevity of the tweets teaches people to express themselves in as little words as possible.
+		button.accordion Where is the full research?
+			.emoji 📚
+		.panel
+			p
+				| Coming soon! We have tirelessly become minor experts on the subject of Emotional Sentiment Analysis and Emojis in general, but because of deadline restrictions we will be publishing the full extent of our research in the near future.
+		button.accordion What is your algorithm?
+			.emoji 🔣
+		.panel
+			p
+				| It's a cumulation of the programming languages and concepts we've learned throughout the JavaScript Intensive programming course taught by the New York Code and Design Academy. Once an inquiry is made, our backend code runs through <em>Twitter’s Search API</em> to extract relevant tweets and then divide them based on their emotional sentiment from the emojis.
+	script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+	script.
+		var acc = document.getElementsByClassName("accordion");
+		var i;
+
+		for (i = 0; i < acc.length; i++) {
+			acc[i].onclick = function(){
+				this.classList.toggle("active");
+				
+				var panel = this.nextElementSibling;
+				
+				if (panel.style.maxHeight) {
+					panel.style.maxHeight = null;
+				} else {
+					panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		}

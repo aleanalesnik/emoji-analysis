@@ -3,9 +3,10 @@ div#login-overlay.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampl
 		div.modal-content
 			
 			div.modal-header
-					h4.modal-title Sign in
+					h4.modal-title Login to Emoji Analysis
 					button.close(type='button', data-dismiss='modal', aria-label='Close')
 						span(aria-hidden='true') ×
+
 			
 			div.modal-body
 				div.row
@@ -13,7 +14,7 @@ div#login-overlay.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampl
 						div.login-box
 							form.form(action="/users/login" method="post" role="form")
 								label(for="email") 
-									strong Fill in your emailaddress:
+									strong Email Address:
 								input#emailfield.form-control(name="email" placeholder="example@gmail.com" type="email" required)
 								p#emailError
 								label(for="password")
@@ -21,23 +22,19 @@ div#login-overlay.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampl
 								input#passwordfield.form-control(name="password" type="password" aria-describedby="passwordInfo" required)
 								p#passwordError
 								br
-								button#login-btn.btn.btn-lg.btn-primary.btn-block(type="submit") Sign up
+								button#login-btn.btn.btn-lg.btn-primary.btn-block(type="submit") Sign In
 					div.col-sm-12.col-md-6
 						divs
-							p.lead Or register now for 
-								span.text-success FREE
+							h4.text-center Not registered yet?
+							h5.text-center Sign up now for 
+								span.text-success#free FREE
 							br
 							ul.list-unstyled(style='line-height: 2')
 								li
-									p.text-success Returns are free
+									p.text-success ✅ Enjoy unlimited hashtag searches
 								li
-									p.text-success Fast re-order
+									p.text-success ✅ Powerful data at your fingertips
 								li
-									p.text-success Save your favorites
-								li
-									p.text-success Fast checkout
-								li
-									a(href='/faq')
-										u Read more
+									p.text-success ✅ No annoying emails!
 							p
-								a.btn.btn-info.btn-block(href='/users/register') Yes please, register now!
+								a.btn.btn-info.btn-block(href='/users/register') Register Now!

@@ -1,19 +1,57 @@
-/* ---------------------------------------------------------------------------
-				BASIC FORMATING
-------------------------------------------------------------------------------*/
+/* 
+COLORS
+actual color codes from header image
+------------------------------------------------------------------------
+#D8E9F9 - light, baby blue		// have not used
+------------------------------------------------------------------------
+#003366 - dark blue
+------------------------------------------------------------------------
+#3975BE; - reg. blue
 
-/*
-Actual color codes from header image:
-#3B8CCD - not used yet, light blue
-#003366; - used for borders, dark blue
-#3975BE; - used for heading 2, reg. blue
+
+FONTS
+------------------------------------------------------------------------
+font-family: 'Social Shapes';	// social media icons
+------------------------------------------------------------------------
+font-family: 'Roboto Cn';		// Roboto Condensed Normal (sans serif)
+font-weight: normal;
+font-style: normal;
+-----------------------------------------------------------------------
+font-family: 'Roboto Lt';		// Roboto Regular Bold (sans serif)
+font-weight: 500;
+font-style: normal;
+-----------------------------------------------------------------------
+font-family: 'Chapaza';			// Chapaza Regular (serif)
+-----------------------------------------------------------------------
+font-family: 'Chapaza';			// Chapaza Italic (serif)
+font-style: italic;
+------------------------------------------------------------------------
+font-family: 'Baby blocks';		// weird as hell
+------------------------------------------------------------------------
+font-family: 'Inconsolata';		// Inconsolata (monospaced)
+font-weight: 500;
+font-style: normal;
+------------------------------------------------------------------------
+font-family: 'Bebas Kai';		// Bebas Kai (sans serif)
+------------------------------------------------------------------------
 */
 
 
 
+
+
+
+/* ---------------------------------------------------------------------------
+				BASIC FORMATING
+------------------------------------------------------------------------------*/
+
+
+/*-----If we change ALL of the fonts to be our "base" font, then
+it will override Bootstrap's default font---------------------*/
 * {
 	margin: 0px;
 	padding: 0px;
+	font-family: 'Roboto Cn';
 }
 
 html {
@@ -21,7 +59,7 @@ html {
     color: black;
 }
 
-/*special font for front page*/
+
 h1 {
 	font-size: 3rem;
 	color: white;
@@ -29,8 +67,10 @@ h1 {
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 2.7rem;
     color: #3975BE;
+    padding-top: 15px;
+    letter-spacing: 1px;
 }
 
 h3 {
@@ -50,15 +90,18 @@ h5 {
     font-size: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+}
+
+h6 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 3.5rem;
+    color: #3975BE;
+    text-decoration: underline;
+    text-align: center;
 
 }
 
-/*h6 {
-    margin:0;
-    padding:0;
-    letter-spacing: 2px;
-    text-decoration: underline;
-}*/
 
 p {
 	font-size: 1rem;
@@ -66,7 +109,103 @@ p {
     padding:0;
     color: black;
 }
-/* end of basic formatting */
+
+
+
+
+
+/* ---------------------------------------------------------------------------
+				BOOTSTRAP THINGS I WANT TO CHANGE
+------------------------------------------------------------------------------*/
+
+
+/*-----HOMEPAGE BUTTONS----------------------------------------*/
+
+/*  HOW TO CHANGE "SIGN IN" BUTTON AND "SEARCH" BUTTON
+ON THE HOME PAGE! can change color, background, size, font  */
+.btn-success {
+  color: #fff;
+  background-color: #3975BE;
+  border-color: #3975BE;
+  cursor: pointer;
+}
+
+.btn-success:hover {
+  color: #fff;
+  background-color: #003366;
+  border-color: #003366;
+}
+
+
+a.btn.btn-success {
+  color: #fff;
+}
+
+a.btn.btn-success:hover {
+  color: #fff;
+  cursor: pointer;
+}
+/*------------------------------------------------------------*/
+
+
+
+
+/*-----LOGO & TOP NAV BAR--------------------------------------*/
+
+
+
+/* #logo is everything you need to change "emoji analysis". I put
+a background on it and changed some other things to show what's
+possible.  */
+
+#logo {
+	color:#003366;
+	font-family: 'Inconsolata';
+	text-transform: uppercase;
+	padding: 10px;
+	letter-spacing: 1px;
+}
+
+/* changes font of nav links */
+a.nav-item {
+	font-size: 1rem;
+}
+
+
+.nav-link:hover {
+	background-color: #eee;
+	cursor: pointer;
+}
+
+.navbar-brand:hover {
+	background-color: #eee;
+}
+
+
+/*-----Register Now! button on modal (green)-----*/
+
+
+.btn-info {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-info:hover {
+  color: #fff;
+  background-color: #25843a;
+  border-color: #25843a;
+}
+
+#free {
+	text-decoration: underline;
+}
+
+.text-success {
+	letter-spacing: 2px;
+}
+
+
 
 
 
@@ -97,12 +236,12 @@ p {
 }
 
 
-
 .reason {
-	/*border: 5px solid #003366;*/
-	padding: 5px;
+	padding: 10px;
 	text-align: middle;
+	background-color: #eee;
 }
+
 
 #reason-link {
 	color: #003366;
@@ -111,13 +250,10 @@ p {
 	text-decoration: underline;
 	margin: 0;
 	padding: 0;
+	display: inline-block;
 }
 
 
-/*
-#003366 dark
-#3975BE light
-*/
 
 
 
@@ -141,7 +277,6 @@ p {
 	border: 1px solid #dddddd;
 }
 
-/* end of PIE CHART */
 
 
 
@@ -154,27 +289,30 @@ p {
 /*  LEFT SIDE - RESULTS & PIE CHART */
 
 .results {
+	text-align: left;
+}
+
+.percent-results {
 	text-align: center;
 }
 
-
 #positive {
 	color: green;
-	font-size: 1.2rem;
+	font-size: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 #negative {
 	color: red;
-	font-size: 1.2rem;
+	font-size: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 #neutral {
 	color: orange;
-	font-size: 1.2rem;
+	font-size: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -185,13 +323,14 @@ p {
 
 .tweet-wrapper {
 	width: 100%;
-	height: 600px;
+	height: 500px;
 	overflow: auto;
+	border: 2px solid #eee;
 }
 
 .tweet {
-	border: 4px solid #3975BE;
-	margin: 30px;
+	background-color: #eee;
+	margin: 20px;
 	padding: 5px;
 }
 
@@ -232,25 +371,29 @@ p {
 	overflow: scroll;
 }
 
+
 .nova {
-	border: 4px solid #003366;
+	padding-top: 10px;
 	display: inline-block;
 	position: relative;
 	width: 45%;
 	height: auto;
 	margin: 2%;
 	overflow: scroll;
+	background-color: #eee;
+	color: black;
 }
 
-
 .alea {
-	border: 4px solid #003366;
+	padding-top: 10px;
 	display: inline-block;
 	position: relative;
 	width: 45%;
 	height: auto;
 	margin: 2%;
 	overflow: scroll;
+	background-color: #eee;
+	color: black;
 }
 
 /* end of ABOUT page */
@@ -297,29 +440,41 @@ p {
 				FAQ PAGE
 ------------------------------------------------------------------------------*/
 
-.faq {
-	border: 4px solid #003366;
-	padding: 10px;
-	overflow: scroll;
-	width: 48%;
-	height: 250px;
-	margin: 10px;
-	display: inline-flex;
+button.accordion {
+	/*position*/
+	width: 100%;
+    padding: 18px;
+    margin: 5px;
+    text-align: left;
+    /*style*/
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: #eee;
+    /*color: #444;*/
+    font-size: 1.2rem;
+    /*animation*/
+    transition: 0.8s;
+    color: #003366;
 }
 
-.faqheading {
-	text-align: left;
-	padding-right: 15px;
-	font-size: 1.4rem;
-	font-weight: bold;
+button.accordion.active, button.accordion:hover {
+    background-color: #ccc; 
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
 }
 
 .emoji {
-	font-size: 2rem;
+	display: inline-block;
+	padding-left: 15px;
+	font-size: 1.2rem;
 }
-
-/* end of FAQ page */
-
 
 
 
@@ -344,3 +499,18 @@ p {
 .modal-title {
 	padding-left: 15px;
 }
+
+
+#register {
+	text-align: right;
+	position: relative;
+	float: right;
+}
+
+
+
+
+/* ---------------------------------------------------------------------------
+				FOOTER
+------------------------------------------------------------------------------*/
+

@@ -4,6 +4,7 @@ html
         meta(charset="utf-8")
         meta(name="viewport", content="width=device-width, initial-scale=1")
         title Emoji analysis
+        link(rel="stylesheet" href="/css/fonts/fonts.css")
         link(rel="stylesheet" href="/css/bootstrap.css") 
         link(rel="stylesheet" href="/css/style.css")
         link(rel="icon" type="image/png" href="/images/icon.png" sizes="32x32")
@@ -14,7 +15,7 @@ html
                 nav.navbar.navbar-expand-lg.navbar-light.bg-light
                     div.container
                         a.navbar-brand(href="/")
-                            strong Emoji Analysis.com
+                            strong(id="logo") EMOJI ANALYSIS
                         button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarNavAltMarkup", aria-controls="navbarNavAltMarkup", aria-expanded="false", aria-label="Toggle navigation")
                             span.navbar-toggler-icon
                         div#navbarNavAltMarkup.collapse.navbar-collapse
@@ -34,6 +35,7 @@ html
             include login-modal.pug
 
         footer
+
     
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js')
