@@ -1,41 +1,56 @@
 extends layout
 
 block content
-	div.container.container-results
-		div.col-12.col-sm-12
-			div.row
-				div.col-sm-12.col-md-6
-					br
-					div.container
-						span#results(data-positive =`${result.positive}` data-negative=`${result.negative}` data-neutral= `${result.neutral}`)
-						h2.results-heading Results for #{result.query}
-						h3 Out of #{result.total-result.error} tweets analysed in the last 7 days:
+	if result
+		div.container.container-results
+			div.col-12.col-sm-12
+				div.row
+					div.col-sm-12.col-md-6
 						br
-						p#positive #{result.positive}% were positive
-						p#negative #{result.negative}% were negative
-						p#neutral #{result.neutral}% were neutral
+						div.container
+							span#results(data-positive =`${result.positive}` data-negative=`${result.negative}` data-neutral= `${result.neutral}`)
+							h2.results-heading Results for #{result.query}
+							h3 Out of #{result.total-result.error} tweets analysed in the last 7 days:
+							br
+							p#positive #{result.positive}% were positive
+							p#negative #{result.negative}% were negative
+							p#neutral #{result.neutral}% were neutral
+							br
+							br
+							p Want to know more about our calculations?
+							p Check out our research at our 
+								a(href="/faq") FAQ page .
+					div.col-sm-12.col-md-6
 						br
 						br
-						p Want to know more about our calculations?
-						p Check out our research at our 
-							a(href="/faq") FAQ page .
-				div.col-sm-12.col-md-6
+						div.container
+							div.pie-wrapper
+								canvas#sentimentChart(width="400" height="400")
+				div.row
+					div.col-sm-12.col-md-12
+						div.tweet-wrapper
+							h5.tweets-analyzed Tweets Analyzed
+							each tweet in result.tweets
+								div.tweet
+									p= tweet
+						br
+						p#disclaimer Disclaimer: We purposely left out usernames for privacy reasons.
+						br
+						br
+	
+	else 
+		div.container
+			div.col-12.col-sm-12
+				div.row.hardwell
 					br
-					br
-					div.container
-						div.pie-wrapper
-							canvas#sentimentChart(width="400" height="400")
-			div.row
-				div.col-sm-12.col-md-12
-					div.tweet-wrapper
-						h5.tweets-analyzed Tweets Analyzed
-						each tweet in result.tweets
-							div.tweet
-								p= tweet
-					br
-					p#disclaimer Disclaimer: We purposely left out usernames for privacy reasons.
-					br
-					br
+					h2.heading-hardwell There were not enough tweets to analyse #{oldquery} 😢😩💔
+						br
+						br
+						form(action="/searches/search" method="post" autocomplete="off")
+							input(type="text" name="q" style="display: none;" value=suggestion)
+							h3 Please try
+								button(type="submit" id="hardwell") #{suggestion} 
+								|  instead!
 
 	script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
 	script(src="../js/Chart.js")

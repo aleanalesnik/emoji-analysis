@@ -61,9 +61,9 @@ router.post('/search', function(req, res) {
 		// check if there is enough data 
 		if(result.total < 70 && result.query[0] === "#") {
 			// change the query and send as suggestion
-			let newquery = result.query;
-			newquery[0] = '@'; 
-			res.render('results', {suggestion: newquery, session: req.session.user});
+			let newquery = result.query.replace("#", "@"); 
+			console.log(newquery);
+			res.render('results', {suggestion: newquery, oldquery: req.body.q, session: req.session.user});
 		} else if( req.session.user === null) {
 			//write search to the database
 			model.Search.create({

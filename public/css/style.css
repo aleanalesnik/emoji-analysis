@@ -80,7 +80,7 @@ h6 {
 
 
 p {
-	font-size: 1rem;
+	font-size: 1.1rem;
     margin:0;
     padding:0;
     color: black;
@@ -149,6 +149,7 @@ a.btn.btn-success:hover {
 	padding: 10px;
 	letter-spacing: 1px;
 }
+
 
 /* changes font of nav links */
 a.nav-item {
@@ -290,8 +291,26 @@ a.nav-item {
 	border: 1px solid #dddddd;
 }
 
+.hardwell {
+	height: 70vh;
+}
 
+.heading-hardwell {
+	margin-top: 10%;
+}
 
+#hardwell {
+	border: 1px solid white;
+	display: inline-block;
+	margin-left: 10px;
+
+}
+
+#hardwell:hover {
+	background-color: #D8E9F9;
+	color: #003366;
+	cursor: pointer;
+}
 
 /* ----------------------------------------------------------------
 					RESULTS PAGE
@@ -373,6 +392,13 @@ a.nav-item {
 	top: 10vw;
 	text-align: center;
 }
+
+.about-us-text {
+	font-size: 1.5rem;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
 
 
 #nova {
