@@ -20,13 +20,9 @@ const T = new Twit({
 // POST ACTION "SEARCH"
 router.post('/search', function(req, res) {
 
-	T.get('search/tweets', { q: `${req.body.q} AND 😄 OR 😁 OR 😂 OR 💕 OR 😎 OR ❤️ OR 🔝 OR 👍 OR 😊 OR 👏 OR 😃 OR ☺️ OR 👌 OR 😍 OR 😀 
-	 🖕 OR 💩 OR 😞 OR 😩 OR 😵 OR 😫 OR 😤 OR 😡 OR 👎 OR 💀 OR 😰 OR 😔 OR 😢 OR 💔 OR 🤔 OR 🎶 OR ✌️ OR 👋 OR 😬 OR 👻 OR 🦄 OR ✈️ OR 
-	 🌴 OR 👀 OR 😳 OR 🙊 OR 😜 OR 😭 OR 👽 OR 😐 OR 😶 -filter:retweets`, tweet_mode: 'extended', count: 100 }).then( data => {
+	T.get('search/tweets', { q: `${req.body.q} AND 😄 OR 😁 OR 😂 OR 💕 OR 😎 OR ❤️ OR 🔝 OR 👍 OR 😊 OR 👏 OR 😃 OR ☺️ OR 👌 OR 😍 OR 😀 OR 🖕 OR 💩 OR 😞 OR 😩 OR 😵 OR 😫 OR 😤 OR 😡 OR 👎 OR 💀 OR 😰 OR 😔 OR 😢 OR 💔 OR 🤔 OR 🎶 OR ✌️ OR 👋 OR 😬 OR 👻 OR 🦄 OR ✈️ OR 🌴 OR 👀 OR 😳 OR 🙊 OR 😜 OR 😭 OR 👽 OR 😐 OR 😶 -filter:retweets`, tweet_mode: 'extended', count: 100 }).then( data => {
 		
 		const tweets = data.data.statuses.map(i => i.full_text); // map all the actual tweet-texts into an array
-
-		console.log(tweets);
 
 		// Declare arrays for the tweets with certain amount of emojis
 		let one = [];
@@ -59,14 +55,32 @@ router.post('/search', function(req, res) {
 
 		return outcome;
 
-		//log the outcome 
-		// console.log(`${total-error} out of ${total} tweets were analysed. ${} percent was negative, ${Math.round((positive/(total-error))*100)} percent was positive and ${Math.round((neutral/(total-error))*100)} percent was neutral.`);
 	})
 	.then( result => {
-		res.render('results', {result: result, session: req.session.user});
+
+		// check if there is enough data 
+		if(result.total < 70 && result.query[0] === "#") {
+			// change the query and send as suggestion
+			let newquery = result.query;
+			newquery[0] = '@'; 
+			res.render('results', {suggestion: newquery, session: req.session.user});
+		} else if( req.session.user === null) {
+			//write search to the database
+			model.Search.create({
+				query: result.query,
+   				percent_positive: result.positive,
+    			percent_negative: result.negative,
+	    		percent_neutral: result.neutral,
+	    		tweets_surveyed: result.total,
+	    		userId: req.session.user.id
+			}).then (search => {
+				res.render('results', {result: result, session: req.session.user});
+			});	
+		} else {
+			res.render('results', {result: result});
+		}
 	})
 	.catch(e => console.error(e.stack));
 }); 
-
 
 module.exports = router;

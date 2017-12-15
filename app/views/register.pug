@@ -10,7 +10,6 @@ block content
 					div.form-wrapper
 						h4 Sign up for full access!
 						hr
-						p= message
 						form.form(action="/users/register" method="post" role="form")
 							div.row
 								div.col-xs-6.col-md-6
@@ -157,14 +156,16 @@ block content
 								div.col-xs-6.col-md-6
 									br
 									label(for="password") Choose a password
-									input.form-control(name="password" type="password" aria-describedby="passwordInfo" required)
+									input.form-control(name="password" type="password" pattern=".{8,12}" required aria-describedby="passwordInfo")
 								div.col-xs-6.col-md-6
 									br
 									label(for="passwordCheck") Re-enter password
-									input.form-control(name="passwordCheck" type="password" required)
+									input.form-control(name="passwordCheck" pattern=".{8,12}" type="password" required)
 							div.row
 								div.col-xs-12.col-md-12
 									small#passwordInfo.form-text.text-muted Your password must be 8-20 characters long.
-							br
+									br
+									p(style="color: red; margin-bottom: 10px")= passworderror
+									p(style="color: red; margin-bottom: 10px")= emailerror
 							button.btn.btn-lg.btn-primary.btn-block(type="submit") Sign up
 

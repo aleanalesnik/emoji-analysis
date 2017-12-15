@@ -99,7 +99,7 @@ function determineSentimentTwo(tweet, posEmos, negEmos, neuEmos) {
 		return 1; 
 	} else if(amountNeg === 2 || amountNeg === 1 && amountNeu === 1 || amountNeg > 2 && amountNeg > amountPos && amountNeg > amountNeu) {
 		return -1; 
-	} else if (amountNeu === 2 || amountNeu > 2 && amountNeu > amountNeg && amountNeu > amountPos || amountPos === 1 && amountNeg === 1 && amountNeu === 1 || amountPos === 1 && amountNeg === 1) {
+	} else if (amountNeu === 2 || amountNeu > 2 && amountNeu > amountNeg && amountNeu > amountPos || amountPos === amountNeg && amountNeu >= 0 || amountPos === 1 && amountNeg === 1 && amountNeu === 1 || amountPos === 1 && amountNeg === 1) {
 		return 0;
 	} else {
 		console.log(`Not assigned with pos = ${amountPos}, neg = ${amountNeg}, neu = ${amountNeu}`)

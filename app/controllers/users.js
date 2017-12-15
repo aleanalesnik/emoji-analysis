@@ -23,11 +23,11 @@ router.post('/login', function(req, res) {
 					req.session.user = user;
 					res.redirect('/');
 				} else {
-					res.send({passwordError: 'Password is incorrect.'});
+					res.redirect('/?message=' + encodeURIComponent("Password is incorrect."));
 				}
 			})
 		} else {
-			res.send({emailError: 'There is no existing account with this emailaddress.'});
+			res.redirect('/?message=' + encodeURIComponent("There is no existing account with this emailaddress."))
 		}
 	})
 	.catch(e => console.error(e.stack));
@@ -35,7 +35,7 @@ router.post('/login', function(req, res) {
 
 // GET PAGE "REGISTER" 
 router.get('/register', function(req, res) {
-	res.render('register'); 
+	res.render('register', {emailerror: req.query.email, passworderror: req.query.password,}); 
 });
 
 // POST ACTION "REGISTER"
@@ -56,20 +56,22 @@ router.post('/register', function(req, res){
 	model.User.userExists(req.body.email)
 	.then( user => {
 		if(user !== null) {
-			res.redirect('/users/register?message=' + encodeURIComponent("You already have an account on this emailaddress. Please use a different emailaddress or log in."))
+			res.redirect('/users/register?email=' + encodeURIComponent("You already have an account on this emailaddress. Please use a different emailaddress or log in."))
+		} else if(req.body.passwordCheck !== req.body.password) {
+			//if passwords are not equal
+			res.redirect('/users/register?password=' + encodeURIComponent("Passwords don't match."))
 		} else {
 			//if not, create, login and return new user with hashed password
-			model.User.createUser(registration).then( user => {
+			model.User.create(registration).then( user => {
 				req.session.user = user;	
 				res.redirect('/');
 			})
 			.catch(e => console.error(e.stack));
 		}
 	})
-
 });
 
-// GET ACTION "SIGN OUT" ----------------------------------
+// GET ACTION "SIGN OUT" 
 router.get('/logout', function(req, res) {
 	req.session.destroy( (error) => {
 		if(error) {
@@ -79,5 +81,13 @@ router.get('/logout', function(req, res) {
 	}); 
 });
 
+// GET ACTION "CHECK SESSION"
+router.get('/checksession', function(req, res) {
+	if(req.session.user !== null) {
+		res.send({session: true})
+	} else {
+		res.send({session: false})
+	}
+});
 
 module.exports = router;
