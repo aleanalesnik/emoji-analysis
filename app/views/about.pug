@@ -1,33 +1,28 @@
 extends layout
 
 block content
-	div.container
-		h2.text-center Meet Our Team
-			.about-parent
-				.nova
-					h5 Nova Eeken
-					img(src="/images/nova2.jpg" style="width:50%;border-radius:100%")
-					.about
-						p 🇳🇱 
-						p From Utrecht, The Netherlands
-						p 📍
-						p Living in Utrecht, The Netherlands
-						p 🎓
-						p Bachelor's Degree in Information Science
-						p Master's Degree in Applied Cognitive Psychology
-						p 💻 
-						p UX/UI Wizard			
-				.alea
-					h5 Alea Nalesnik 
-					img(src="/images/alea.jpg" style="width:50%;border-radius:100%")
-					.about
-						p 🇺🇸 
-						p From California, U.S.A
-						p 📍
-						p Living in Amsterdam, The Netherlands
-						p 🎓 
-						p Bachelor's Degree in Journalism
-						p Minor in Digital Media Entrepreneurship 
-						p 🏆 
-						p Time's Person of the Year 2006
-						br
+	div.index-wrapper
+		img.header-image(src="/images/header-image-v3.png" alt="header-image")
+		div.container
+			div.about-main-text
+				h1.text-center Meet the Team
+				div.our-pictures
+					img(src="/images/nova2.jpg" alt="nova" id="nova"  style="width:50%;border-radius:100%")
+					img(src="/images/alea.jpg" alt="alea" id="alea"  style="width:50%;border-radius:100%")
+		div.container
+			div.col-12
+				div.row.about-down
+					div.col-sm-12.col-md-6.col-lg-6
+						.about-us
+							h2 Nova Eeken
+							h5 Utrecht, The Netherlands 🇳🇱
+							h5 🎓 Bachelor's Degree in Information Science
+							h5 🎓 Master's Degree in Applied Cognitive Psychology
+							h5 💻 UX/UI Wizard
+					div.col-sm-12.col-md-6.col-lg-6
+						.about-us
+							h2 Alea Nalesnik
+							h5 California, U.S.A 🇺🇸
+							h5 🎓 Bachelor's Degree in Journalism
+							h5 🎓 Minor in Digital Media Entrepreneurship 
+							h5 🏆 Time's Person of the Year 2006

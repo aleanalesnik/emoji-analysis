@@ -1,39 +1,16 @@
 /* 
 COLORS
 actual color codes from header image
-------------------------------------------------------------------------
+-----------------------------------------------------------------
 #D8E9F9 - light, baby blue		// have not used
-------------------------------------------------------------------------
+-----------------------------------------------------------------
 #003366 - dark blue
-------------------------------------------------------------------------
+-----------------------------------------------------------------
 #3975BE; - reg. blue
+-----------------------------------------------------------------
 
+#002549; - footer bottom color
 
-FONTS
-------------------------------------------------------------------------
-font-family: 'Social Shapes';	// social media icons
-------------------------------------------------------------------------
-font-family: 'Roboto Cn';		// Roboto Condensed Normal (sans serif)
-font-weight: normal;
-font-style: normal;
------------------------------------------------------------------------
-font-family: 'Roboto Lt';		// Roboto Regular Bold (sans serif)
-font-weight: 500;
-font-style: normal;
------------------------------------------------------------------------
-font-family: 'Chapaza';			// Chapaza Regular (serif)
------------------------------------------------------------------------
-font-family: 'Chapaza';			// Chapaza Italic (serif)
-font-style: italic;
-------------------------------------------------------------------------
-font-family: 'Baby blocks';		// weird as hell
-------------------------------------------------------------------------
-font-family: 'Inconsolata';		// Inconsolata (monospaced)
-font-weight: 500;
-font-style: normal;
-------------------------------------------------------------------------
-font-family: 'Bebas Kai';		// Bebas Kai (sans serif)
-------------------------------------------------------------------------
 */
 
 
@@ -41,13 +18,10 @@ font-family: 'Bebas Kai';		// Bebas Kai (sans serif)
 
 
 
-/* ---------------------------------------------------------------------------
+/* ----------------------------------------------------------------
 				BASIC FORMATING
-------------------------------------------------------------------------------*/
+------------------------------------------------------------------*/
 
-
-/*-----If we change ALL of the fonts to be our "base" font, then
-it will override Bootstrap's default font---------------------*/
 * {
 	margin: 0px;
 	padding: 0px;
@@ -61,10 +35,12 @@ html {
 
 
 h1 {
-	font-size: 3rem;
+	font-size: 3.7vw;
 	color: white;
-	text-shadow: 2px 2px 2px #003366;
+	text-shadow: 3px 3px 3px #002549;
+	
 }
+
 
 h2 {
     font-size: 2.7rem;
@@ -111,18 +87,33 @@ p {
 }
 
 
+.homepagesub {
+	font-size: 1.5rem;
+	color: white;
+	text-shadow: 3px 3px 3px #002549;
+	text-align: center;
+}
+
+#message {
+	background-color: #3975BE;
+	color: white;
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+/*.searchbar {
+
+	text-transform: uppercase;
+	background-color: #003366;
+
+}
+*/
 
 
+/* ----------------------------------------------------------------
+				LANDING PAGE BUTTONS
+------------------------------------------------------------------*/
 
-/* ---------------------------------------------------------------------------
-				BOOTSTRAP THINGS I WANT TO CHANGE
-------------------------------------------------------------------------------*/
-
-
-/*-----HOMEPAGE BUTTONS----------------------------------------*/
-
-/*  HOW TO CHANGE "SIGN IN" BUTTON AND "SEARCH" BUTTON
-ON THE HOME PAGE! can change color, background, size, font  */
 .btn-success {
   color: #fff;
   background-color: #3975BE;
@@ -145,18 +136,11 @@ a.btn.btn-success:hover {
   color: #fff;
   cursor: pointer;
 }
-/*------------------------------------------------------------*/
 
 
-
-
-/*-----LOGO & TOP NAV BAR--------------------------------------*/
-
-
-
-/* #logo is everything you need to change "emoji analysis". I put
-a background on it and changed some other things to show what's
-possible.  */
+/* ----------------------------------------------------------------
+				LOGO & TOP NAVIGATION BAR
+------------------------------------------------------------------*/
 
 #logo {
 	color:#003366;
@@ -182,9 +166,35 @@ a.nav-item {
 }
 
 
+
+
+/* ----------------------------------------------------------------
+				REGISTER / LOGIN MODAL
+------------------------------------------------------------------*/
+
+.login-box {
+	border-radius: 5px;
+	background-color: #ededed;
+	border: 1px solid #dddddd;
+	padding: 20px;
+}
+
+.modal-body {
+	padding: 25px;
+}
+
+.modal-title {
+	padding-left: 15px;
+}
+
+
+#register {
+	text-align: right;
+	position: relative;
+	float: right;
+}
+
 /*-----Register Now! button on modal (green)-----*/
-
-
 .btn-info {
   color: #fff;
   background-color: #28a745;
@@ -208,12 +218,9 @@ a.nav-item {
 
 
 
-
-
-
-/* ---------------------------------------------------------------------------
-				HOMEPAGE
-------------------------------------------------------------------------------*/
+/* ----------------------------------------------------------------
+							HOMEPAGE
+------------------------------------------------------------------*/
 .header-image {
 	z-index: -1;
 	width: 100%;
@@ -232,35 +239,41 @@ a.nav-item {
 	position: absolute;
 	z-index: 1;
 	right: 20%;
-	top: 17vw;
+	top: 10vw;
 }
 
 
 .reason {
 	padding: 10px;
 	text-align: middle;
-	background-color: #eee;
+	text-align: center;
 }
 
 
 #reason-link {
-	color: #003366;
+	color: #3975BE;
 	font-size: 1rem;
 	text-transform: uppercase;
 	text-decoration: underline;
-	margin: 0;
-	padding: 0;
+	top-margin: 20px;
 	display: inline-block;
+	padding-top: 10px;
+}
+
+
+#frontpage-images {
+	padding-bottom: 10px;
+}
+
+#piechart {
+	padding-bottom: 10px;
 }
 
 
 
-
-
-
-/* ---------------------------------------------------------------------------
-				PIE CHART ON RESULTS PAGE
-------------------------------------------------------------------------------*/
+/* ----------------------------------------------------------------
+				PIE CHARTS RESULTS PAGE
+------------------------------------------------------------------*/
 .pie-wrapper {
 	margin: 0 auto;
 	width: 100%;
@@ -280,21 +293,19 @@ a.nav-item {
 
 
 
-/* ---------------------------------------------------------------------------
-				RESULTS PAGE
-------------------------------------------------------------------------------*/
+/* ----------------------------------------------------------------
+					RESULTS PAGE
+------------------------------------------------------------------*/
 
 
+/*------------LEFT SIDE - RESULTS & PIE CHART------------*/
 
-/*  LEFT SIDE - RESULTS & PIE CHART */
 
-.results {
-	text-align: left;
+.results-heading {
+	font-size: 3.5rem;
+	margin-bottom: 10px;
 }
 
-.percent-results {
-	text-align: center;
-}
 
 #positive {
 	color: green;
@@ -319,13 +330,14 @@ a.nav-item {
 
 
 
-/*  RIGHT SIDE - TWEETS  */
+/*------------RIGHT SIDE - TWEETS------------*/
 
 .tweet-wrapper {
 	width: 100%;
 	height: 500px;
 	overflow: auto;
 	border: 2px solid #eee;
+	margin-top: 100px;
 }
 
 .tweet {
@@ -343,20 +355,87 @@ a.nav-item {
 	padding: 0;
 }
 
-
-
-/* end of RESULTS page */
-
-
-
+.tweets-analyzed {
+	text-align: center;
+	margin: 25px;
+}
 
 
 
-/* ---------------------------------------------------------------------------
-				ABOUT PAGE
-------------------------------------------------------------------------------*/
+/* ----------------------------------------------------------------
+					ABOUT PAGE
+------------------------------------------------------------------*/
+.about-main-text {
+	width: 60%;
+	position: absolute;
+	z-index: 1;
+	right: 20%;
+	top: 10vw;
+	text-align: center;
+}
 
-.about-parent {
+
+#nova {
+	position: relative;
+	right: 15%;
+	bottom: 50px;
+
+}
+
+#alea {
+	position: relative;
+	left: 15%;
+	bottom: 50px;
+}
+
+
+.about-down {
+	margin-top: 17vw;
+}
+
+.about-us {
+	text-align: center;
+	width: 100%;
+	height: 350px;
+	padding: 20px;
+}
+
+#bgabout {
+	background-color: #eee;
+}
+
+.our-pictures img {
+	width: 100px;
+	height: auto;
+	max-width: 600px;
+}
+
+
+/*.bg-1 { 
+	background-color: blue;
+	height: 250px;
+}
+
+.bg-2 { 
+	background-color: #eee;
+	color: black;
+}*/
+
+/*
+
+
+#nova {
+	float: left;
+	position: relative;
+}
+
+#alea {
+	float: right;
+	position: relative;
+}*/
+
+
+/*.about-parent {
 	width: 100%;
 	height: auto;
 	display: inline-block;
@@ -395,16 +474,14 @@ a.nav-item {
 	background-color: #eee;
 	color: black;
 }
-
-/* end of ABOUT page */
-
+*/
 
 
 
 
-/* ---------------------------------------------------------------------------
+/* ----------------------------------------------------------------
 					CONTACT PAGE
-------------------------------------------------------------------------------*/
+------------------------------------------------------------------*/
 .contact-parent {
 	width: 100%;
 	height: auto;
@@ -427,19 +504,14 @@ a.nav-item {
 	text-align: left;
 }
 
-/* end of CONTACT page */
 
 
 
 
 
-
-
-
-/* ---------------------------------------------------------------------------
-				FAQ PAGE
-------------------------------------------------------------------------------*/
-
+/* ----------------------------------------------------------------
+					FAQ PAGE
+------------------------------------------------------------------*/
 button.accordion {
 	/*position*/
 	width: 100%;
@@ -481,36 +553,40 @@ div.panel {
 
 
 
-/* ---------------------------------------------------------------------------
-				LOGIN MODAL
-------------------------------------------------------------------------------*/
-
-.login-box {
-	border-radius: 5px;
-	background-color: #ededed;
-	border: 1px solid #dddddd;
-	padding: 20px;
-}
-
-.modal-body {
-	padding: 25px;
-}
-
-.modal-title {
-	padding-left: 15px;
-}
-
-
-#register {
-	text-align: right;
-	position: relative;
-	float: right;
-}
-
-
 
 
 /* ---------------------------------------------------------------------------
 				FOOTER
 ------------------------------------------------------------------------------*/
+
+.footer-wrapper {
+	background-color: #002549;
+	color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 4%;
+}
+
+.footer-bottom {
+	text-align: center;
+	padding: 10px;
+	background-color: #002549;
+
+}
+
+.footerFont {
+	color: white;
+}
+
+@media (max-width: 600px) { 
+	h1 {
+		font-size: 1.5rem;
+	} 
+}
+
+@media (min-width: 1199px) { 
+	h1 {
+		font-size: 3rem;
+	} 
+}
 

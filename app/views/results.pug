@@ -5,25 +5,30 @@ block content
 		div.col-12.col-sm-12
 			div.row
 				div.col-sm-12.col-md-6
-					div.results
-						br
+					br
+					div.container
 						span#results(data-positive =`${result.positive}` data-negative=`${result.negative}` data-neutral= `${result.neutral}`)
-						h2.text-center Results for 
-							h6 #{result.query}
+						h2.results-heading Results for #{result.query}
+						h3 Out of #{result.total-result.error} tweets analysed in the last 7 days:
 						br
-						div.pie-wrapper
-							canvas#sentimentChart(width="400" height="400")
+						p#positive #{result.positive}% were positive
+						p#negative #{result.negative}% were negative
+						p#neutral #{result.neutral}% were neutral
 						br
-						.percent-results
-							p Out of #{result.total-result.error} tweets analysed:
-							p#positive #{result.positive}% Positive Tweets
-							p#negative #{result.negative}% Negative Tweets
-							p#neutral #{result.neutral}% Neutral Tweets
+						br
+						p Want to know more about our calculations?
+						p Check out our research at our 
+							a(href="/faq") FAQ page .
 				div.col-sm-12.col-md-6
 					br
 					br
-					h5.text-center Tweets Analyzed
+					div.container
+						div.pie-wrapper
+							canvas#sentimentChart(width="400" height="400")
+			div.row
+				div.col-sm-12.col-md-12
 					div.tweet-wrapper
+						h5.tweets-analyzed Tweets Analyzed
 						each tweet in result.tweets
 							div.tweet
 								p= tweet
@@ -31,9 +36,6 @@ block content
 					p#disclaimer Disclaimer: We purposely left out usernames for privacy reasons.
 					br
 					br
-					p.text-center Want to know more about our calculations?
-					p.text-center Check out our research at our 
-						a(href="/faq") FAQ page .
 
 	script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
 	script(src="../js/Chart.js")
@@ -53,8 +55,8 @@ block content
 			            label: '% of sentiment emojis',
 			            data: [positive, negative, neutral],
 			            backgroundColor:[
-			            "rgb(57, 211, 35)",
-			            "rgb(210, 34, 81)",
+			            "rgb(40, 167, 69)",
+			            "rgb(219, 28, 21)",
 			            "rgb(255, 205, 86)"
 			            ],
 			            borderWidth: 4

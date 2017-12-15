@@ -8,31 +8,45 @@ block content
 				div.container
 					div.searchfield
 						form(action="/searches/search" method="post" autocomplete="off")
-								h1.text-center What hashtag would you like to explore?
+							div.text-center
+								p#message= message
+								h1 We measure real-time emotion 
+								h1 on Twitter using emojis.
+								br
+								br
+								br
+								h4.homepagesub What hashtag or user would you like to explore?
 								br
 								div.form-group
 									div.input-group
-										input.form-control(type="text" name="q" placeholder="e.g. #Donaldtrump" required)
+										input.form-control(type="text" name="q" placeholder="e.g. #Donaldtrump or @rihanna" required)
 										span.input-group-btn
 											button.btn.btn-success(type="submit") Search
 	div.container
 		br
-		h2.text-center We measure real-time emotion on Twitter using emojis.
-			br
-			br
-			div.row
-				div.col-12.col-sm-12.col-md-4.col-lg-4
-					.reason
-						h3 Powerful Data
-						p It's not easy to analyze emotional sentiment online, but our research and algorithms have allowed us to create the Emoji Analysis search tool specifically for Twitter hashtags.
-						a(href='/faq' id='reason-link') Our Research
-				div.col-12.col-sm-12.col-md-4.col-lg-4
-					.reason
-						h3 Unearth Opinion
-						p Curious how others view current events? Interested in how well a campaign is stacking up? The search results will reveal how positive, negative and neutral any inquiries are.
-						a(href='/about' id='reason-link') About Us
-				div.col-12.col-sm-12.col-md-4.col-lg-4
-					.reason
-						h3 Free to Use
-						p Unlike our money-hungry competitors, our search algorithm is free to use. All you need to do is create an account and you can get to searching as many times as you'd like!
-						a(href='/faq' id='reason-link') Sign Up Here
+		br
+		br
+		br
+		div.row
+			div.col-12.col-sm-12.col-md-4.col-lg-4
+				div.reason
+					h3 Powerful Data
+					img(src="/images/004-pie-chart.png" id='piechart')
+					p It's not easy to analyze emotional sentiment online, but our research and algorithms have allowed us to create the Emoji Analysis search tool specifically for Twitter hashtags.
+					
+					a(href='/faq' id='reason-link') Our Research
+			div.col-12.col-sm-12.col-md-4.col-lg-4
+				.reason
+					h3 Unearth Opinion
+					img(src="/images/002-humanpictos.png" id='frontpage-images')
+					p Curious how others view current events? Interested in how well a campaign is stacking up? The search results will reveal how positive, negative and neutral any inquiries are.
+					a(href='/about' id='reason-link') About Us
+			div.col-12.col-sm-12.col-md-4.col-lg-4
+				.reason
+					h3 Free to Use
+					img(src="/images/005-cloud-computing.png" id='frontpage-images')
+					p Unlike our money-hungry competitors, our search algorithm is free to use. All you need to do is create an account and you can get to searching as many times as you'd like!
+					a(href='/faq' id='reason-link') Sign Up Here
+		br
+		br
+		br
