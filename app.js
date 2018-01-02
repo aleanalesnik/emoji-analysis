@@ -25,7 +25,7 @@ app.use(session({
 		expiration: 24 * 60 * 60 * 1000 // The maximum age (in milliseconds) of a valid session.
 	}),
 	secret: "safe",
-	saveUnitialized: true,
+	saveUninitialized: true,
 	resave: false
 }));
 
